@@ -35,5 +35,11 @@ public class UnionTest {
 	   }
 	   fail ("NullPointerException expected");
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testEmptyElements()
+	{
+		Union.union(a, b);
+	}
 
 }
