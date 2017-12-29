@@ -1,8 +1,3 @@
-package UnionTest;
-
-//import static org.junit.jupiter.api.Assertions.*;
-
-//import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
@@ -10,14 +5,14 @@ import java.util.*;
 public class UnionTest {
 
 	//private Vector<String> list;
-	private List<String> a;
-	private List<String> b;
+	private Vector a;
+	private Vector b;
 	
 	@Before
 	public void setUp()
 	{
-	   a = new ArrayList<String>();
-	   b = new ArrayList<String>();
+	   a = new Vector();
+	   b = new Vector();
 	}
 
 	@After
@@ -31,9 +26,10 @@ public class UnionTest {
 	public void testForNullElements()
 	{
 		a = null;
+		//a.addElement("fruit1");
 		b = null;
 	   try {
-	      Union.union (a, b);
+		   Union.union(a, b);
 	   } catch (NullPointerException e) {
 	      return;
 	   }
