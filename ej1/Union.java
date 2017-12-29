@@ -8,13 +8,26 @@ public class Union
 	{      
 		if (a.isEmpty() || b.isEmpty())
 	    {
-	        throw new IllegalArgumentException ("Min.min");
+	        throw new IllegalArgumentException ("Union.union");
 	    }
 		
 	    if (a == null || b == null)
 	    {
 	    	throw new NullPointerException ("Union.union");
 	    }
-	    return a;
+	    
+	    Iterator itr = a.iterator();
+	    Vector result = new Vector (b);
+	    while (itr.hasNext())
+	    {   // throws NPE, CCE as needed
+	        Object comp = itr.next();
+	        if (b.contains(comp))
+	        {
+	            ;
+	        }else {
+	        	result.add (comp);
+	        }
+	    }
+	    return result;
 	}
 }

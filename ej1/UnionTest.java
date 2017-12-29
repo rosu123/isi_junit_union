@@ -41,5 +41,19 @@ public class UnionTest {
 	{
 		Union.union(a, b);
 	}
+	
+	@Test
+	public void testDifferentElements()
+	{
+	   a.add ("dog");
+	   b.add ("cat");
+	   Vector vec2 = new Vector();
+	   vec2.add("cat");
+	   vec2.add("dog");
+	   Vector vec1 = Union.union(a, b);
+	   assertTrue ("Error adding different elements", vec1.equals(vec2));
+	}
+	
+	
 
 }
