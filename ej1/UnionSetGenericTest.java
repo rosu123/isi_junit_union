@@ -2,16 +2,17 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
 
-public class UnionSetTest {
+public class UnionSetGenericTest {
 
-	private Set a;
-	private Set b;
+	//private Vector<String> list;
+	private Set<String> a;
+	private Set<String> b;
 	
 	@Before
 	public void setUp()
 	{
-	   a = new HashSet();
-	   b = new HashSet();
+	   a = new HashSet<>();
+	   b = new HashSet<>();
 	}
 
 	@After
@@ -22,28 +23,27 @@ public class UnionSetTest {
 	}
 	
 	@Test
-	public void testSetForNullElements()
+	public void testSetGenericForNullElements()
 	{
 		a = null;
 		//a.addElement("fruit1");
 		b = null;
 	   try {
-		   Union.unionSet(a, b);
+		   Union.unionSetGeneric(a, b);
 	   } catch (NullPointerException e) {
 	      return;
 	   }
 	   fail ("NullPointerException expected");
 	}
-
+	
 	@Test (expected = IllegalArgumentException.class)
-	public void testSetEmptyElements()
+	public void testSetGenericEmptyElements()
 	{
-		Union.unionSet(a, b);
+		Union.unionSetGeneric(a, b);
 	}
 	
-	
 	@Test
-	public void testSetDifferentElements()
+	public void testSetGenericDifferentElements()
 	{
 	   a.add ("dog");
 	   a.add("bird");
@@ -57,21 +57,4 @@ public class UnionSetTest {
 	   assertTrue ("Error adding different elements", set1.equals(set2));
 	}
 	
-
-	@Test
-	public void testSetGenericDifferentTypes()
-	{
-		a.add ("dog");
-		a.add("bird");
-		b.add("cat");
-		b.add(5);
-		Union.unionSet(a, b);
-		Set set2 = new HashSet();
-		set2.add("cat");
-		set2.add("dog");
-		set2.add("bird");
-		set2.add(5);
-		Set set1 = Union.unionSet(a, b);
-		assertTrue ("Error adding different elements", set1.equals(set2));
-	}
 }
