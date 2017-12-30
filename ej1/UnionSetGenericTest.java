@@ -42,4 +42,19 @@ public class UnionSetGenericTest {
 		Union.unionSetGeneric(a, b);
 	}
 	
+	@Test
+	public void testSetGenericDifferentElements()
+	{
+	   a.add ("dog");
+	   a.add("bird");
+	   b.add ("cat");
+	   b.add("dog");
+	   Set set2 = new HashSet();
+	   set2.add("cat");
+	   set2.add("dog");
+	   set2.add("bird");
+	   Set set1 = Union.unionSet(a, b);
+	   assertTrue ("Error adding different elements", set1.equals(set2));
+	}
+	
 }
