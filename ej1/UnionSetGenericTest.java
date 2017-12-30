@@ -36,6 +36,10 @@ public class UnionSetGenericTest {
 	   fail ("NullPointerException expected");
 	}
 	
-	
+	@Test (expected = IllegalArgumentException.class)
+	public void testSetGenericEmptyElements()
+	{
+		Union.unionSetGeneric(a, b);
+	}
 	
 }
