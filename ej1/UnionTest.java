@@ -7,16 +7,13 @@ public class UnionTest {
 	//private Vector<String> list;
 	private Vector a;
 	private Vector b;
-	private Set c;
-	private Set d;
+	
 	
 	@Before
 	public void setUp()
 	{
 	   a = new Vector();
 	   b = new Vector();
-	   c = new HashSet();
-	   d = new HashSet();
 	}
 
 	@After
@@ -24,8 +21,6 @@ public class UnionTest {
 	{
 	   a = null; 
 	   b = null;
-	   c = null;
-	   d = null;
 	}
 	
 	@Test
@@ -58,42 +53,6 @@ public class UnionTest {
 	   vec2.add("dog");
 	   Vector vec1 = Union.union(a, b);
 	   assertTrue ("Error adding different elements", vec1.equals(vec2));
-	}
-	
-	@Test
-	public void testSetForNullElements()
-	{
-		c = null;
-		//a.addElement("fruit1");
-		d = null;
-	   try {
-		   Union.unionSet(c, d);
-	   } catch (NullPointerException e) {
-	      return;
-	   }
-	   fail ("NullPointerException expected");
-	}
-
-	@Test (expected = IllegalArgumentException.class)
-	public void testSetEmptyElements()
-	{
-		Union.unionSet(c, d);
-	}
-	
-	
-	@Test
-	public void testSetDifferentElements()
-	{
-	   c.add ("dog");
-	   c.add("bird");
-	   d.add ("cat");
-	   d.add("dog");
-	   Set set2 = new HashSet();
-	   set2.add("cat");
-	   set2.add("dog");
-	   set2.add("bird");
-	   Set set1 = Union.unionSet(c, d);
-	   assertTrue ("Error adding different elements", set1.equals(set2));
 	}
 	
 	
