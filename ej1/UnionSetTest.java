@@ -57,6 +57,8 @@ public class UnionSetTest {
 	   assertTrue ("Error adding different elements", set1.equals(set2));
 	}
 	
+	//No necesito el de poder meter diferentes tipos ya que al definir el set
+	//como un generico de string, solo deja introducir strings
 	
 	
 }
