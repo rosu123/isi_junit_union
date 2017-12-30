@@ -79,4 +79,22 @@ public class UnionTest {
 	{
 		Union.unionSet(c, d);
 	}
+	
+	
+	@Test
+	public void testSetDifferentElements()
+	{
+	   c.add ("dog");
+	   c.add("bird");
+	   d.add ("cat");
+	   d.add("dog");
+	   Set set2 = new HashSet();
+	   set2.add("cat");
+	   set2.add("dog");
+	   set2.add("bird");
+	   Set set1 = Union.unionSet(c, d);
+	   assertTrue ("Error adding different elements", set1.equals(set2));
+	}
+	
+	
 }
