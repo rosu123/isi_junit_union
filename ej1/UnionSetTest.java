@@ -73,7 +73,4 @@ public class UnionSetTest {
 		Set set1 = Union.unionSet(a, b);
 		assertTrue ("Error adding different elements", set1.equals(set2));
 	}
-	
-	
-	
 }
