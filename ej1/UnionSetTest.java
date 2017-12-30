@@ -57,6 +57,23 @@ public class UnionSetTest {
 	   assertTrue ("Error adding different elements", set1.equals(set2));
 	}
 	
+	@Test
+	public void testSetGenericDifferentTypes()
+	{
+		a.add ("dog");
+		a.add("bird");
+		b.add("cat");
+		b.add(5);
+		Union.unionSet(a, b);
+		Set set2 = new HashSet();
+		set2.add("cat");
+		set2.add("dog");
+		set2.add("bird");
+		set2.add(5);
+		Set set1 = Union.unionSet(a, b);
+		assertTrue ("Error adding different elements", set1.equals(set2));
+	}
+	
 	
 	
 }
